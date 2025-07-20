@@ -1,6 +1,14 @@
+name: Playwright Table Sum QA
+
+on:
+  # Triggers the workflow on every push and manual trigger
+  push:
+  workflow_dispatch:
+
 jobs:
   sum-tables:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -12,10 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: |
+          npm init -y
           npm install playwright
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: 23f2001691@ds.study.iitm.ac.in - Run Playwright script
+      - name: 23f2001691@ds.study.iitm.ac.in - Run Playwright Script
         run: node scrape_tables.js
